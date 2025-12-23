@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 error not found</title>
+  <link rel="stylesheet" href="css/base.css?v=9" />
+  <link rel="icon" type="image/png" href="img/red.png">
+</head>
+<body>
+  <header class="top-header">
+    <h1>website/404</h1>
+    <button class="nav-back" onclick="history.back()">Return Back</button>
+  </header>
+
+  <main class="bio-container">
+    <section class="bio-card">
+      <div class="bio-info">
+        <h2>404 page not found</h2>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2025 All Rights Reserved</p>
+  </footer>
+
+  <script>
+    // Определяем текущий путь
+    const path = window.location.pathname.replace(/\/+$/, ""); // убираем лишние /
+    const routes = {
+      "/feed": "/feed.html",
+      "/dev": "/dev.html",
+      "/pay": "/pay.html",
+      "/prod": "/prod.html",
+    };
+
+    if (routes[path]) {
+      fetch(routes[path])
+        .then((response) => {
+          if (!response.ok) throw new Error("Not found");
+          return response.text();
+        })
+        .then((html) => {
+          document.open();
+          document.write(html);
+          document.close();
+        })
+        .catch(() => {
+          show404();
+        });
+    } else {
+      show404();
+    }
+
+    function show404() {
+      console.log(`Error ${path}`);
+    }
+
+  </script>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

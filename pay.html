@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover" />
+  <title>Donate - sazxe.website</title>
+  <link rel="stylesheet" href="css/base.css?v=9" />
+  <link rel="icon" type="image/png" href="img/black.png">
+</head>
+<body>
+  <header class="top-header">
+    <h1>sazxe.website</h1>
+    <button class="nav-back">Return Back</button>
+  </header>
+
+  <main class="donate-container">
+    <section class="donate-card">
+      <div class="donate-header">
+        <h2>Support & Donate</h2>
+        <p class="donate-subtitle">Choose your preferred cryptocurrency to support the project</p>
+      </div>
+
+      <div class="crypto-list">
+        <div class="crypto-item" data-crypto="btc">
+          <div class="crypto-header">
+            <img src="img/pi/btc.png" alt="BTC" class="crypto-avatar">
+            <div class="crypto-title">Bitcoin</div>
+            <div class="crypto-code">BTC</div>
+          </div>
+          <div class="crypto-address" id="btc-address">Address will appear here when you click SHOW</div>
+          <div class="crypto-actions">
+            <button class="show-btn" onclick="showAddress('btc')">Show</button>
+            <button class="copy-btn" onclick="copyAddress('btc')">Copy</button>
+          </div>
+        </div>
+
+        <div class="crypto-item" data-crypto="eth">
+          <div class="crypto-header">
+            <img src="img/pi/eth.png" alt="ETH" class="crypto-avatar">
+            <div class="crypto-title">Ethereum</div>
+            <div class="crypto-code">ETH</div>
+          </div>
+          <div class="crypto-address" id="eth-address">Address will appear here when you click SHOW</div>
+          <div class="crypto-actions">
+            <button class="show-btn" onclick="showAddress('eth')">Show</button>
+            <button class="copy-btn" onclick="copyAddress('eth')">Copy</button>
+          </div>
+        </div>
+
+        <div class="crypto-item" data-crypto="usdt">
+          <div class="crypto-header">
+            <img src="img/pi/usdt.png" alt="USDT" class="crypto-avatar">
+            <div class="crypto-title">Tether</div>
+            <div class="crypto-code">USDT</div>
+          </div>
+          <div class="crypto-address" id="usdt-address">Address will appear here when you click SHOW</div>
+          <div class="crypto-actions">
+            <button class="show-btn" onclick="showAddress('usdt')">Show</button>
+            <button class="copy-btn" onclick="copyAddress('usdt')">Copy</button>
+          </div>
+        </div>
+
+        <div class="crypto-item" data-crypto="ltc">
+          <div class="crypto-header">
+            <img src="img/pi/ltc.png" alt="LTC" class="crypto-avatar">
+            <div class="crypto-title">Litecoin</div>
+            <div class="crypto-code">LTC</div>
+          </div>
+          <div class="crypto-address" id="ltc-address">Address will appear here when you click SHOW</div>
+          <div class="crypto-actions">
+            <button class="show-btn" onclick="showAddress('ltc')">Show</button>
+            <button class="copy-btn" onclick="copyAddress('ltc')">Copy</button>
+          </div>
+        </div>
+
+        <div class="crypto-item" data-crypto="ton">
+          <div class="crypto-header">
+            <img src="img/pi/ton.png" alt="TON" class="crypto-avatar">
+            <div class="crypto-title">TON</div>
+            <div class="crypto-code">TON</div>
+          </div>
+          <div class="crypto-address" id="ton-address">Address will appear here when you click SHOW</div>
+          <div class="crypto-actions">
+            <button class="show-btn" onclick="showAddress('ton')">Show</button>
+            <button class="copy-btn" onclick="copyAddress('ton')">Copy</button>
+          </div>
+        </div>
+
+        <div class="crypto-item" data-crypto="bnb">
+          <div class="crypto-header">
+            <img src="img/pi/bnb.png" alt="BNB" class="crypto-avatar">
+            <div class="crypto-title">BNB</div>
+            <div class="crypto-code">BNB</div>
+          </div>
+          <div class="crypto-address" id="bnb-address">Address will appear here when you click SHOW</div>
+          <div class="crypto-actions">
+            <button class="show-btn" onclick="showAddress('bnb')">Show</button>
+            <button class="copy-btn" onclick="copyAddress('bnb')">Copy</button>
+          </div>
+        </div>
+
+        <div class="crypto-item" data-crypto="ada">
+          <div class="crypto-header">
+            <img src="img/pi/ada.png" alt="ADA" class="crypto-avatar">
+            <div class="crypto-title">Cardano</div>
+            <div class="crypto-code">ADA</div>
+          </div>
+          <div class="crypto-address" id="ada-address">Address will appear here when you click SHOW</div>
+          <div class="crypto-actions">
+            <button class="show-btn" onclick="showAddress('ada')">Show</button>
+            <button class="copy-btn" onclick="copyAddress('ada')">Copy</button>
+          </div>
+        </div>
+
+        <div class="crypto-item" data-crypto="doge">
+          <div class="crypto-header">
+            <img src="img/pi/doge.png" alt="DOGE" class="crypto-avatar">
+            <div class="crypto-title">Dogecoin</div>
+            <div class="crypto-code">DOGE</div>
+          </div>
+          <div class="crypto-address" id="doge-address">Address will appear here when you click SHOW</div>
+          <div class="crypto-actions">
+            <button class="show-btn" onclick="showAddress('doge')">Show</button>
+            <button class="copy-btn" onclick="copyAddress('doge')">Copy</button>
+          </div>
+        </div>
+
+        <div class="crypto-item" data-crypto="sol">
+          <div class="crypto-header">
+            <img src="img/pi/sol.png" alt="SOL" class="crypto-avatar">
+            <div class="crypto-title">Solana</div>
+            <div class="crypto-code">SOL</div>
+          </div>
+          <div class="crypto-address" id="sol-address">Address will appear here when you click SHOW</div>
+          <div class="crypto-actions">
+            <button class="show-btn" onclick="showAddress('sol')">Show</button>
+            <button class="copy-btn" onclick="copyAddress('sol')">Copy</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="donate-thanks">
+        <p>Thank you for your support! Every contribution helps improve the project.</p>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <p>© 2025 All Rights Reserved</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
+
+
+

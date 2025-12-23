@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover" />
+  <title>F#CK @world</title>
+  <link rel="icon" type="image/png" href="img/orange.png">
+  <style>
+    body {
+      margin: 0;
+      background: #800001;
+      color: #fff;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Courier New", monospace;
+      overflow: hidden;
+      font-size: 1.2rem;
+      letter-spacing: 1.5px;
+    }
+
+    #screen {
+      text-align: center;
+      white-space: pre;
+      line-height: 1.4;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 10px;
+      background: #FF0060;
+      margin-left: 3px;
+      animation: blink 0.7s infinite;
+    }
+
+    @keyframes blink {
+      0%, 50% {
+        opacity: 1;
+      }
+      51%, 100% {
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="screen"></div>
+
+  <script>
+    // можно менять слова здесь ↓
+    const phrases = ["Reductionism"];
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#@$%*";
+    const screen = document.getElementById("screen");
+
+    async function scrambleText(target, finalText, speed = 30, scrambleCycles = 20) {
+      return new Promise((resolve) => {
+        let step = 0;
+        const interval = setInterval(() => {
+          let display = "";
+          for (let i = 0; i < finalText.length; i++) {
+            if (step < scrambleCycles) {
+              display += chars[Math.floor(Math.random() * chars.length)];
+            } else {
+              display += finalText[i];
+            }
+          }
+          target.textContent = display;
+          step++;
+          if (step > scrambleCycles) {
+            clearInterval(interval);
+            setTimeout(resolve, 400);
+          }
+        }, speed);
+      });
+    }
+
+    async function runBoot() {
+      screen.textContent = "";
+      const cursor = document.createElement("span");
+      cursor.className = "cursor";
+      screen.appendChild(cursor);
+
+      for (let phrase of phrases) {
+        await scrambleText(screen, phrase, 25, 25);
+        await new Promise(r => setTimeout(r, 500));
+      }
+
+      // мгновенный переход
+      window.location.href = "feed";
+    }
+
+    function init() {
+      screen.innerHTML = "";
+      runBoot();
+    }
+
+    window.addEventListener("load", init);
+    window.addEventListener("pageshow", e => {
+      if (e.persisted) init();
+    });
+  </script>
+</body>
+</html>
+
+
